@@ -11,14 +11,17 @@ body{
     align-items: center;
     background-color: aliceblue;
 }
+/* section 1 - Logo and Display */ 
 .calculator-frame{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     margin: 2%;
     border: 1px solid black;
-    height: 600px;
+    height: 620px;
     width: 400px;
-    
+
 }
 .calculator-head{
     display: flex;
@@ -74,4 +77,20 @@ body{
     width: 250px;
     align-self: center;
     border-radius:10px;
+}
+
+/* section 2 - buttons */
+.button-frame{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid black;
+    height:360px;
+    width: 385px;
+    margin-bottom: 10px;
+}
+.buttons-0-3,.buttons-4-7,.buttons-8-11,.buttons-12-15,.buttons-16-19,.buttons-20-23{
+    display: flex;
+    gap: 10px;
 }
