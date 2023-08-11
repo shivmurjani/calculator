@@ -4,21 +4,24 @@
     box-sizing: border-box;
 }
 body{
-    border: 5px solid antiquewhite;
+    border: 5px solid black;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: aliceblue;
+    background-color: black;
 }
 /* section 1 - Logo and Display */ 
 .calculator-frame{
+    background-color: #c7c8ca;
+    background-image: linear-gradient(transparent 50%, rgba(255,255,255,.5) 50%);
+    background-size: 2px 2px;
+    border: 1px solid black;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     margin: 2%;
-    border: 1px solid black;
     height: 620px;
     width: 400px;
 
@@ -81,6 +84,10 @@ body{
 
 /* section 2 - buttons */
 .button-frame{
+    background-color:#b4b8b7;
+    background-image: linear-gradient(transparent 50%, rgba(255,255,255,.5) 50%);
+    background-size: 3px 3px;
+    background-color: ;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -97,6 +104,8 @@ body{
     
 }
 button{
+    background-color: #4b4b4b;
+    color: white;
     height: 30px;
     width: 45px;
     font-weight: 800;
