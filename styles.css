@@ -1,0 +1,77 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    border: 5px solid antiquewhite;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+}
+.calculator-frame{
+    display: flex;
+    justify-content: center;
+    margin: 2%;
+    border: 1px solid black;
+    height: 600px;
+    width: 400px;
+    
+}
+.calculator-head{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 2%;
+    border: 1px solid red;
+    height: 200px;
+    width: 385px;
+    
+}
+.logo{
+    align-self: flex-start;
+    align-items: flex-end;
+    margin: 1% 5%;
+}
+.calculator-display-border{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1%;
+    border: 1px solid blue;
+    height: 170px;
+    width: 370px;
+    
+}
+.display{
+    display: flex;
+    flex-direction: column;
+    margin: 1%;
+    border: 1px solid black;
+    height: 140px;
+    width: 330px;
+}
+.solar-panel-container{
+    display: flex;
+    justify-content: center;
+    
+}
+.solar-panel{
+    display: flex;
+    border: 1px solid green;
+    height: 50px;
+    width: 55px;
+    margin-top: 1%;
+}
+.screen{
+    border: 1px solid black;
+    margin-top: 7%;
+    height: 50px;
+    width: 250px;
+    align-self: center;
+    border-radius:10px;
+}
