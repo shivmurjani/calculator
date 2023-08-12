@@ -79,13 +79,8 @@
         const displayScreen = document.querySelector('.screen');
 
         const numericButtons = document.querySelectorAll('.numbtn');
-        const operatorButtons = document.querySelectorAll('.btn .operator')
+        const operatorButtons = document.querySelectorAll('.operator')
         
-percentButton.value = '%';
-addButton.value = '+';
-sqrootButton.value ='**';
-divideButton.value = '/';
-multiplyButton.value = '*';
 
 let currentOperator = 0;
 let currenOperandOne = 0;
@@ -109,28 +104,7 @@ function operatorClick(string){
     }
     
 
-}
-function on(){
-
-}
-function ce(){
-
-}
-function cm(){
-
-}
-function rm(){
-    
-}
-function mminus(){
-
-}
-function mplus(){
-    
-}
-function checkOperation(){                      //checks if operation is to be performed before next operation button click
-
-}
+}   
 
 numericButtons.forEach(button=>{
     button.addEventListener('click',()=>{
@@ -141,14 +115,10 @@ numericButtons.forEach(button=>{
 
 operatorButtons.forEach(button=>{
     button.addEventListener('click',()=>{
-        textContents = button.value;
+        textContents = button.textContent;
         numberClick(textContents);
     });
 });
 
-dotButton.addEventListener('click',()=>{
-    textContent = dotButton.textContent;
-    displayScreen.textContent+=textContent;
-})
 
 
