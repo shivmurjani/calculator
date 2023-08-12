@@ -48,3 +48,5 @@
         /0 = pls stop.
     
     */
+
+const seven = document.querySelector('seven');
