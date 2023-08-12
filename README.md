@@ -3,7 +3,6 @@
 ![Calculator Preview](./images/calc_project.png)
 
 This project is an HTML, CSS, and JavaScript implementation of a calculator inspired by the **Sharp EL-326** arithmetic calculator. The Sharp EL-326 is known for its 8-digit precision, algebraic logic, and solar-powered functionality. This digital calculator replica aims to provide a similar experience to the original device, offering a nostalgic touch combined with modern web technologies.
-
 As an homage to the precision and innovation inherent in Japanese engineering, this project pays tribute to the legacy of the Sharp EL-326 calculator—a testament to the meticulous craftsmanship and forward-thinking design synonymous with Japanese technology.
 
 ## Features
