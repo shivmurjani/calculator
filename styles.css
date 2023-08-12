@@ -1,5 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,1000&family=Roboto:ital,wght@0,400;1,300&family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Nunito+Sans:opsz,wght@6..12,400;6..12,1000&family=Roboto:ital,wght@0,400;1,300&family=VT323&display=swap');
 @font-face {
     font-family: 'Digital-7 Regular';
     font-style: normal;
@@ -109,13 +110,26 @@ body{
 }
 .body-text{
     display: flex;
-    justify-content: space-between;
+    justify-content: baseline;
     font-size: small;
     gap: 40px;
+    
 }
 .text1{
     display: flex;
     gap:10px;
+
+}
+.text-head{
+    font-family: 'Abril Fatface';
+}
+.text-model{
+    font-family: 'Abril Fatface';
+    font-weight: 300;
+}
+.text2{
+    font-weight:550;
+
 }
 
 .emoji{
