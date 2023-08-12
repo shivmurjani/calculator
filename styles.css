@@ -16,11 +16,9 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url(./images/retro.jpeg);
-    background-repeat: repeat;
+    background-image: url(./images/Screenshot\ 2023-08-12\ at\ 5.05.07\ AM.png);
+    background-repeat: no-repeat;
     background-size:cover;
-    background-position:0px -120px;
-
 
 }
 
@@ -29,7 +27,8 @@ body{
     background-color: #c7c8ca;
     background-image: linear-gradient(transparent 50%, rgba(255,255,255,.5) 50%);
     background-size: 2px 2px;
-    border: 1px solid black;
+    box-shadow: 0px 1px 1px 1px;
+    border-radius: 2px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -45,7 +44,7 @@ body{
     justify-content: flex-end;
     align-items: center;
     margin-top: 2%;
-    border: 1px solid red;
+    box-shadow: 1px 1px 1px 1px currentColor;
     height: 200px;
     width: 385px;
     
@@ -66,7 +65,6 @@ body{
     justify-content: center;
     align-items: center;
     margin: 1%;
-    border: 1px solid blue;
     height: 170px;
     width: 370px;
     
@@ -74,9 +72,9 @@ body{
 .display{
     display: flex;
     background-color: #4f5055;
+    box-shadow: inset 1px 1px 1px 1px currentColor;
     flex-direction: column;
     margin: 1%;
-    border: 1px solid black;
     height: 140px;
     width: 330px;
 }
@@ -127,14 +125,14 @@ body{
 /* section 2 - buttons */
 .button-frame{
     background-color:#b4b8b7;
-    background-image: linear-gradient(transparent 50%, rgba(255,255,255,.5) 50%);
+    background-image: linear-gradient(transparent 50%, #ffffff80 50%);
     background-size: 3px 3px;
-    background-color: ;
+    box-shadow: inset 1px 1px 1px 1px currentColor;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    border: 1px solid black;
+
     height:360px;
     width: 385px;
     margin-bottom: 10px;
@@ -152,7 +150,8 @@ body{
     background-color:#861a13;
 }
 button{
-    background-color: #4b4b4b;
+    outline: 1px solid #ffffff80;
+    background-color: #4c4c4e;
     color: white;
     height: 30px;
     width: 45px;
@@ -167,5 +166,5 @@ button{
 }
 .white-line{
     border: 0.01em solid white;
-    width: 383px;
+    width: 380px;
 }
