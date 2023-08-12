@@ -52,7 +52,7 @@ This project was inspired by the **Sharp EL-326** arithmetic calculator, a class
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](./MIT%20License).
 
 ---
 
