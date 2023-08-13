@@ -120,6 +120,7 @@ numberBtn.forEach(button =>{
         displayScreen.textContent+=button.textContent;
         global_string+=button.textContent; //global string has the digits
         console.log(global_string,operand1,operand2,operatorArray);
+
     })
 })
 //user typing in operator
@@ -131,16 +132,25 @@ operatorBtn.forEach(button =>{
             operand1 = parseInt(global_string);
             global_string = '';
             displayScreen.textContent += button.textContent;
+            console.log(global_string,operand1,operand2,operatorArray);
         }
         else{
             operand2 = parseInt(global_string);
             operation();
-            console.log(result);
             operand1=result;
             operand2 = [];
             global_string = ''
             operatorArray.push(button.textContent);
             displayScreen.textContent = result + button.textContent;
+            console.log(global_string,operand1,operand2,operatorArray);
         }
     })
+})
+
+//equalto button functionality
+equalButton.addEventListener('click',()=>{
+    operand2 = parseInt(global_string);
+    operation();
+    global_string = result.toString();
+    displayScreen.textContent = result;
 })
