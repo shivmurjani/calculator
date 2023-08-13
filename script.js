@@ -86,6 +86,21 @@ let global_string = '';
 let operatorArray = [];
 let operand1=[];
 let operand2=[];
+let result = [];
+
+//operation function.
+function operation(){
+    let currentOperator = operatorArray.pop();
+    switch (currentOperator){
+        case '+':
+            result = operand1+operand2;
+            
+            break;
+    }
+}
+
+
+
 
 //user typing in digits.
 const numberBtn = document.querySelectorAll('.numbtn');
@@ -93,7 +108,7 @@ numberBtn.forEach(button =>{
     button.addEventListener('click',()=>{
         displayScreen.textContent+=button.textContent;
         global_string+=button.textContent; //global string has the digits
-        console.log(global_string);
+        console.log(global_string,operand1,operand2,operatorArray);
     })
 })
 //user typing in operator
@@ -107,8 +122,10 @@ operatorBtn.forEach(button =>{
             displayScreen.textContent += button.textContent;
         }
         else{
-            operatorArray.push(button.textContent);//for now, will change
             operand2 = parseInt(global_string);
+            operation();
+            console.log(result);
+            operatorArray.push(button.textContent);
             displayScreen.textContent += button.textContent;
         }
     })
