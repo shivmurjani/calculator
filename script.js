@@ -94,7 +94,18 @@ function operation(){
     switch (currentOperator){
         case '+':
             result = operand1+operand2;
-            
+            break;
+        case '-':
+            result = operand1-operand2;
+            break;
+        case '%':
+            result = operand1%operand2;
+            break;            
+        case '÷':
+            result = operand1/operand2;
+            break;
+        case '×':
+            result = operand1*operand2;
             break;
     }
 }
@@ -125,8 +136,11 @@ operatorBtn.forEach(button =>{
             operand2 = parseInt(global_string);
             operation();
             console.log(result);
+            operand1=result;
+            operand2 = [];
+            global_string = ''
             operatorArray.push(button.textContent);
-            displayScreen.textContent += button.textContent;
+            displayScreen.textContent = result + button.textContent;
         }
     })
 })
