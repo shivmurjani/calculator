@@ -49,76 +49,67 @@
     
     */
 
-        const zeroButton = document.querySelector('#zero');
-        const oneButton = document.querySelector('#one');
-        const twoButton = document.querySelector('#two');
-        const threeButton = document.querySelector('#three');
-        const fourButton = document.querySelector('#four');
-        const fiveButton = document.querySelector('#five');
-        const sixButton = document.querySelector('#six');
-        const sevenButton = document.querySelector('#seven');
-        const eightButton = document.querySelector('#eight');
-        const nineButton = document.querySelector('#nine');
-        
-        const cmButton = document.querySelector('#cm');
-        const rmButton = document.querySelector('#rm');
-        const mminusButton = document.querySelector('#mminus');
-        const mplusButton = document.querySelector('#mplus');
-        const ceButton = document.querySelector('#ce');
-        const onButton = document.querySelector('#on');
-        
-        const multiplyButton = document.querySelector('#multiply');
-        const divideButton = document.querySelector('#divide');
-        const addButton = document.querySelector('#add');
-        const minusButton = document.querySelector('#minus');
-        const dotButton = document.querySelector('#dot');  
-        const equalButton = document.querySelector('#equal');
-        const sqrootButton = document.querySelector('#sqroot');
-        const percentButton = document.querySelector('#percent');
-        
-        const displayScreen = document.querySelector('.screen');
+const zeroButton = document.querySelector('#zero');
+const oneButton = document.querySelector('#one');
+const twoButton = document.querySelector('#two');
+const threeButton = document.querySelector('#three');
+const fourButton = document.querySelector('#four');
+const fiveButton = document.querySelector('#five');
+const sixButton = document.querySelector('#six');
+const sevenButton = document.querySelector('#seven');
+const eightButton = document.querySelector('#eight');
+const nineButton = document.querySelector('#nine');
 
-        const numericButtons = document.querySelectorAll('.numbtn');
-        const operatorButtons = document.querySelectorAll('.operator')
-        
+const cmButton = document.querySelector('#cm');
+const rmButton = document.querySelector('#rm');
+const mminusButton = document.querySelector('#mminus');
+const mplusButton = document.querySelector('#mplus');
+const ceButton = document.querySelector('#ce');
+const onButton = document.querySelector('#on');
 
-let currentOperator = 0;
-let currenOperandOne = 0;
-let currenOperandTwo = 0;
+const multiplyButton = document.querySelector('#multiply');
+const divideButton = document.querySelector('#divide');
+const addButton = document.querySelector('#add');
+const minusButton = document.querySelector('#minus');
+const dotButton = document.querySelector('#dot');  
+const equalButton = document.querySelector('#equal');
+const sqrootButton = document.querySelector('#sqroot');
+const percentButton = document.querySelector('#percent');
 
-function numberClick(string){
-    if(displayScreen.textContent == '0'){
-        displayScreen.textContent = text;
-    }
-    else{
-        displayScreen.textContent += string;
-    }
-    
-}
-function operatorClick(string){
-    if(displayScreen.textContent === '0'){
-        return
-    }
-    else{
-        displayScreen.textContent += string;
-    }
-    
+const displayScreen = document.querySelector('.screen');
 
-}   
+const numericButtons = document.querySelectorAll('.numbtn');
+const operatorButtons = document.querySelectorAll('.operator')
 
-numericButtons.forEach(button=>{
+
+let global_string = '';
+let operatorArray = [];
+let operand1=[];
+let operand2=[];
+
+//user typing in digits.
+const numberBtn = document.querySelectorAll('.numbtn');
+numberBtn.forEach(button =>{
     button.addEventListener('click',()=>{
-        textContents = button.textContent;
-        numberClick(textContents);
-    });
-});
-
-operatorButtons.forEach(button=>{
+        displayScreen.textContent+=button.textContent;
+        global_string+=button.textContent; //global string has the digits
+        console.log(global_string);
+    })
+})
+//user typing in operator
+const operatorBtn = document.querySelectorAll('.operator');
+operatorBtn.forEach(button =>{
     button.addEventListener('click',()=>{
-        textContents = button.textContent;
-        numberClick(textContents);
-    });
-});
-
-
-
+        if(operatorArray.length == 0){
+            operatorArray.push(button.textContent);
+            operand1 = parseInt(global_string);
+            global_string = '';
+            displayScreen.textContent += button.textContent;
+        }
+        else{
+            operatorArray.push(button.textContent);//for now, will change
+            operand2 = parseInt(global_string);
+            displayScreen.textContent += button.textContent;
+        }
+    })
+})
