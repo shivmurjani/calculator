@@ -34,9 +34,10 @@ body{
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    margin: 2%;
+    margin: 10%;
     height: 620px;
     width: 400px;
+
 
 }
 .calculator-head{
