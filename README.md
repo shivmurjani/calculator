@@ -49,7 +49,7 @@ As an homage to the precision and innovation inherent in Japanese engineering, t
 - JavaScript
 
 ## Acknowledgments
-
+![Original Calculator](./images/il_1588xN.4241120772_n604.jpg)
 This project was inspired by the **Sharp EL-326** arithmetic calculator, a classic device known for its simplicity and solar-powered functionality. Special thanks to the creators of the original calculator for their innovative design.
 
 ## License
