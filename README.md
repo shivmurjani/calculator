@@ -40,7 +40,7 @@ As an homage to the precision and innovation inherent in Japanese engineering, t
 
 ## Preview
 
-![Calculator Interface](calculator_interface.png)
+![Calculator Interface](./images/ui.png)
 
 ## Technologies Used
 
