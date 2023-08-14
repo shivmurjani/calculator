@@ -126,9 +126,13 @@
         const numberBtn = document.querySelectorAll('.numbtn');
         numberBtn.forEach(button =>{
             button.addEventListener('click',()=>{
-                displayScreen.textContent+=button.textContent;
+                if(displayScreen.textContent =='0'){
+                    global_string+=button.textContent; 
+                    displayScreen.textContent=button.textContent;
+                }
+                else{displayScreen.textContent+=button.textContent;
                 global_string+=button.textContent; //global string has the digits
-                console.log(global_string,operand1,operand2,operatorArray);
+                console.log(global_string,operand1,operand2,operatorArray);}
         
             })
         })
@@ -139,7 +143,7 @@
                 if(displayScreen.textContent.length == 0){
                     return
                 }
-                else if(operatorArray.length == 0){
+                else if(operatorArray.length == 0){     //handles sqroot of -if only one number on screen.
                     if(button.textContent == '√'){
                         operand1 = parseFloat(global_string);
                         result = Math.sqrt(operand1);
@@ -149,7 +153,6 @@
                         global_string = operand1;
                         
                     }
-
                     else{
                     operatorArray.push(button.textContent);
                     operand1 = parseFloat(global_string);
@@ -184,4 +187,26 @@
                 displayScreen.textContent += '.';
                 global_string += '.';
             }
+        })
+
+        //clear entry button functionality
+        ceButton.addEventListener('click',()=>{
+            if(operand1 == 0 && operand2 == 0){
+                global_string = '';
+                displayScreen.textContent = '0'
+            }
+            else if(operand1.length !== 0 && operatorArray.length!==0){
+                global_string = operand1+operatorArray[0]+'';
+                displayScreen.textContent = global_string;
+                global_string = ''
+            }
+            else if(operand1.length !== 0 && operatorArray.length!==0){
+                global_string = '';
+                displayScreen.textContent = '0'
+            }
+            else{
+                global_string = '';
+                displayScreen.textContent = '0'
+            }
+
         })
