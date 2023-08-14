@@ -113,15 +113,8 @@
                     result = Number(result.toFixed(2));
                     break;
                 case '√':
-                    if(operand1.length==1 && operand2.length == 0){
-                        number = operand1
-                        number = Math.sqrt(number);
-                        result = Number(number.toFixed(2));
-                    }
-                    else{
                         result = operand1*Math.sqrt(operand2);
                         result = Number(result.toFixed(2));
-                    }
                     break;
             }
         }
@@ -147,11 +140,22 @@
                     return
                 }
                 else if(operatorArray.length == 0){
+                    if(button.textContent == '√'){
+                        operand1 = parseFloat(global_string);
+                        result = Math.sqrt(operand1);
+                        result = Number(result.toFixed(2));
+                        operand1=result
+                        displayScreen.textContent = result;
+                        global_string = operand1;
+                        
+                    }
+
+                    else{
                     operatorArray.push(button.textContent);
                     operand1 = parseFloat(global_string);
                     global_string = '';
                     displayScreen.textContent += button.textContent;
-                    console.log(global_string,operand1,operand2,operatorArray);
+                    console.log(global_string,operand1,operand2,operatorArray);}
                 }
                 else{
                     operand2 = parseFloat(global_string);
