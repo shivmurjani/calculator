@@ -62,8 +62,8 @@
         
         const cmButton = document.querySelector('#cm');
         const rmButton = document.querySelector('#rm');
-        const mminusButton = document.querySelector('#mminus');
-        const mplusButton = document.querySelector('#mplus');
+        const mminusButton = document.querySelector('#m-minus');
+        const mplusButton = document.querySelector('#m-plus');
         const ceButton = document.querySelector('#ce');
         const onButton = document.querySelector('#on');
         
@@ -77,78 +77,200 @@
         const percentButton = document.querySelector('#percent');
         
         const displayScreen = document.querySelector('.screen');
-
-        const numericButtons = document.querySelectorAll('.numbtn');
-        const operatorButtons = document.querySelectorAll('.btn .operator')
         
-percentButton.value = '%';
-addButton.value = '+';
-sqrootButton.value ='**';
-divideButton.value = '/';
-multiplyButton.value = '*';
+        const numericButtons = document.querySelectorAll('.numbtn');
+        const operatorButtons = document.querySelectorAll('.operator')
+        
+        
+        let global_string = '';
+        let operatorArray = [];
+        let operand1=[];
+        let operand2=[];
+        let memory = [];
+        let currentValue=[];
 
-let currentOperator = 0;
-let currenOperandOne = 0;
-let currenOperandTwo = 0;
+        function clsrscr(){
+            displayScreen.textContent = '';
+            global_string='';
+            operand1=[];
+            operand2=[];
+            operatorArray=[];
+            result = 0;
+        }
+        
+        //operation function.
+        function operation(){
+            let currentOperator = operatorArray.pop();
+            switch (currentOperator){
+                case '+':
+                    result = operand1+operand2;
+                    result = Number(result.toFixed(2));
+                    break;
+                case '-':
+                    result = operand1-operand2;
+                    result = Number(result.toFixed(2));
+                    break;
+                case '%':
+                    result = operand1%operand2;
+                    result = Number(result.toFixed(2));
+                    break;            
+                case '÷':
+                    if(operand2 == 0){
+                        result = 'ERROR';
+                        break;
+                    }
+                    result = operand1/operand2;
+                    result = Number(result.toFixed(2));
+                    break;
+                case '×':
+                    result = operand1*operand2;
+                    result = Number(result.toFixed(2));
+                    break;
+                case '√':
+                        result = operand1*Math.sqrt(operand2);
+                        result = Number(result.toFixed(2));
+                    break;
+            }
+        }
+        
+        
+        
+        
+        //user typing in digits.
+        const numberBtn = document.querySelectorAll('.numbtn');
+        numberBtn.forEach(button =>{
+            button.addEventListener('click',()=>{
+                if(displayScreen.textContent.length ==8){
+                    return
+                }
+                else if(displayScreen.textContent =='0'){
+                    global_string+=button.textContent; 
+                    displayScreen.textContent=button.textContent;
+                }
+                else{displayScreen.textContent+=button.textContent;
+                global_string+=button.textContent; //global string has the digits
+                console.log(global_string,operand1,operand2,operatorArray);}
+        
+            })
+        })
+        //user typing in operator
+        const operatorBtn = document.querySelectorAll('.operator');
+        operatorBtn.forEach(button =>{
+            button.addEventListener('click',()=>{
+                if(displayScreen.textContent.length == 0){
+                    return
+                }
+                else if(operatorArray.length == 0){     //handles sqroot of -if only one number on screen.
+                    if(button.textContent == '√'){
+                        operand1 = parseFloat(global_string);
+                        result = Math.sqrt(operand1);
+                        result = Number(result.toFixed(2));
+                        operand1=result
+                        displayScreen.textContent = result;
+                        global_string = operand1;
+                        
+                    }
+                    else{
+                    operatorArray.push(button.textContent);
+                    operand1 = parseFloat(global_string);
+                    global_string = '';
+                    displayScreen.textContent += button.textContent;
+                    console.log(global_string,operand1,operand2,operatorArray);}
+                }
+                else{
+                    operand2 = parseFloat(global_string);
+                    operation();
+                    operand1=result;
+                    operand2 = [];
+                    global_string = ''
+                    operatorArray.push(button.textContent);
+                    displayScreen.textContent = result + button.textContent;
+                    console.log(global_string,operand1,operand2,operatorArray);
+                }
+            })
+        })
+        
+        //equalto button functionality
+        equalButton.addEventListener('click',()=>{
+            operand2 = parseFloat(global_string);
+            operation();
+            global_string = result.toString();
+            displayScreen.textContent = result;
+        })
 
-function numberClick(string){
-    if(displayScreen.textContent == '0'){
-        displayScreen.textContent = text;
-    }
-    else{
-        displayScreen.textContent += string;
-    }
-    
-}
-function operatorClick(string){
-    if(displayScreen.textContent === '0'){
-        return
-    }
-    else{
-        displayScreen.textContent += string;
-    }
-    
+        //dot button functionality
+        dotButton.addEventListener('click',()=>{
+            if(global_string.textContent != ' '&& global_string.indexOf('.')===-1){
+                displayScreen.textContent += '.';
+                global_string += '.';
+            }
+        })
 
-}
-function on(){
+        //clear entry button functionality
+        ceButton.addEventListener('click',()=>{
+            if(operand1 == 0 && operand2 == 0){
+                global_string = '';
+                displayScreen.textContent = '0'
+            }
+            else if(operand1.length !== 0 && operatorArray.length!==0){
+                global_string = operand1+operatorArray[0]+'';
+                displayScreen.textContent = global_string;
+                global_string = ''
+            }
+            else if(operand1.length !== 0 && operatorArray.length!==0){
+                global_string = '';
+                displayScreen.textContent = '0'
+            }
+            else{
+                global_string = '';
+                displayScreen.textContent = '0'
+            }
 
-}
-function ce(){
+        })
 
-}
-function cm(){
+        //on button
+        onButton.addEventListener('click',()=>{
+            if(displayScreen.textContent == ''){
+                clsrscr();
+                global_string = '0';
+                displayScreen.textContent = global_string;
+            }
+            else{
+                clsrscr();
+            }
+        })
 
-}
-function rm(){
-    
-}
-function mminus(){
+        //clear memory cm button
+        cmButton.addEventListener('click',()=>{
+            memory = [];
+        })
+        
+        
+        
+        
+        //mplus, adds current value to memory
 
-}
-function mplus(){
-    
-}
-function checkOperation(){                      //checks if operation is to be performed before next operation button click
+        mplusButton.addEventListener('click',()=>{
+            if(isNaN(parseFloat(global_string))){
+                console.log(operand1)
+                memory = operand1;
+            }
+            else{memory = parseFloat(global_string);}
+        })
 
-}
-
-numericButtons.forEach(button=>{
-    button.addEventListener('click',()=>{
-        textContents = button.textContent;
-        numberClick(textContents);
-    });
-});
-
-operatorButtons.forEach(button=>{
-    button.addEventListener('click',()=>{
-        textContents = button.value;
-        numberClick(textContents);
-    });
-});
-
-dotButton.addEventListener('click',()=>{
-    textContent = dotButton.textContent;
-    displayScreen.textContent+=textContent;
-})
+        //mminus button 
+        mminusButton.addEventListener('click',()=>{
+            currentValue = parseFloat(global_string);
+            memory = currentValue - memory;
+        })
 
 
+        //rm button, recalls memory.
+
+        rmButton.addEventListener('click',()=>{
+            if(operand1.length ==0){
+                return
+            }
+            global_string = memory;
+            displayScreen.textContent+=global_string;
+        })
