@@ -112,6 +112,17 @@
                     result = operand1*operand2;
                     result = Number(result.toFixed(2));
                     break;
+                case '√':
+                    if(operand1.length==1 && operand2.length == 0){
+                        number = operand1
+                        number = Math.sqrt(number);
+                        result = Number(number.toFixed(2));
+                    }
+                    else{
+                        result = operand1*Math.sqrt(operand2);
+                        result = Number(result.toFixed(2));
+                    }
+                    break;
             }
         }
         
@@ -132,7 +143,10 @@
         const operatorBtn = document.querySelectorAll('.operator');
         operatorBtn.forEach(button =>{
             button.addEventListener('click',()=>{
-                if(operatorArray.length == 0){
+                if(displayScreen.textContent.length == 0){
+                    return
+                }
+                else if(operatorArray.length == 0){
                     operatorArray.push(button.textContent);
                     operand1 = parseFloat(global_string);
                     global_string = '';
@@ -152,19 +166,18 @@
             })
         })
         
-//equalto button functionality
-equalButton.addEventListener('click',()=>{
-    operand2 = parseFloat(global_string);
-    operation();
-    global_string = result.toString();
-    displayScreen.textContent = result;
-})
+        //equalto button functionality
+        equalButton.addEventListener('click',()=>{
+            operand2 = parseFloat(global_string);
+            operation();
+            global_string = result.toString();
+            displayScreen.textContent = result;
+        })
 
-//dot button functionality
-dotButton.addEventListener('click',()=>{
-    if(global_string.textContent != ' '&& global_string.indexOf('.')===-1){
-        displayScreen.textContent += '.';
-        global_string += '.';
-    }
-    
-})
+        //dot button functionality
+        dotButton.addEventListener('click',()=>{
+            if(global_string.textContent != ' '&& global_string.indexOf('.')===-1){
+                displayScreen.textContent += '.';
+                global_string += '.';
+            }
+        })
