@@ -95,6 +95,7 @@
             operand1=[];
             operand2=[];
             operatorArray=[];
+            result = 0;
         }
         
         //operation function.
@@ -114,6 +115,10 @@
                     result = Number(result.toFixed(2));
                     break;            
                 case '÷':
+                    if(operand2 == 0){
+                        result = 'ERROR';
+                        break;
+                    }
                     result = operand1/operand2;
                     result = Number(result.toFixed(2));
                     break;
@@ -135,7 +140,10 @@
         const numberBtn = document.querySelectorAll('.numbtn');
         numberBtn.forEach(button =>{
             button.addEventListener('click',()=>{
-                if(displayScreen.textContent =='0'){
+                if(displayScreen.textContent.length ==8){
+                    return
+                }
+                else if(displayScreen.textContent =='0'){
                     global_string+=button.textContent; 
                     displayScreen.textContent=button.textContent;
                 }
