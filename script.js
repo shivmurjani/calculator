@@ -140,7 +140,7 @@
         const numberBtn = document.querySelectorAll('.numbtn');
         numberBtn.forEach(button =>{
             button.addEventListener('click',()=>{
-                if(displayScreen.textContent.length ==8){
+                if(displayScreen.textContent.length == 8){
                     return
                 }
                 else if(displayScreen.textContent =='0'){
@@ -158,6 +158,9 @@
         operatorBtn.forEach(button =>{
             button.addEventListener('click',()=>{
                 if(displayScreen.textContent.length == 0){
+                    return
+                }
+                else if(displayScreen.textContent.length == 8){
                     return
                 }
                 else if(operatorArray.length == 0){     //handles sqroot of -if only one number on screen.
