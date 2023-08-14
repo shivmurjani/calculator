@@ -87,6 +87,14 @@
         let operand1=[];
         let operand2=[];
         let result = [];
+
+        function clsrscr(){
+            displayScreen.textContent = '';
+            global_string='';
+            operand1=[];
+            operand2=[];
+            operatorArray=[];
+        }
         
         //operation function.
         function operation(){
@@ -209,4 +217,16 @@
                 displayScreen.textContent = '0'
             }
 
+        })
+
+        //on button
+        onButton.addEventListener('click',()=>{
+            if(displayScreen.textContent == ''){
+                clsrscr();
+                global_string = '0';
+                displayScreen.textContent = global_string;
+            }
+            else{
+                clsrscr();
+            }
         })
