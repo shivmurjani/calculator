@@ -62,8 +62,8 @@
         
         const cmButton = document.querySelector('#cm');
         const rmButton = document.querySelector('#rm');
-        const mminusButton = document.querySelector('#mminus');
-        const mplusButton = document.querySelector('#mplus');
+        const mminusButton = document.querySelector('#m-minus');
+        const mplusButton = document.querySelector('#m-plus');
         const ceButton = document.querySelector('#ce');
         const onButton = document.querySelector('#on');
         
@@ -86,7 +86,7 @@
         let operatorArray = [];
         let operand1=[];
         let operand2=[];
-        let result = [];
+        let memory = [];
 
         function clsrscr(){
             displayScreen.textContent = '';
@@ -229,4 +229,37 @@
             else{
                 clsrscr();
             }
+        })
+
+        //clear memory cm button
+        cmButton.addEventListener('click',()=>{
+            memory = [];
+        })
+        
+        
+        
+        
+        //mplus, adds current value to memory
+
+        mplusButton.addEventListener('click',()=>{
+            if(isNaN(parseFloat(global_string))){
+                console.log(operand1)
+                memory = operand1;
+            }
+            else{memory = parseFloat(global_string);}
+        })
+
+        // //mminus button 
+        // mminusButton.addEventListener('click',()=>{
+        //     if(result != 0 && memory.length ==1){
+        //         result = result - memory[0]
+        //     }
+        // })
+
+
+        //rm button, recalls memory.
+
+        rmButton.addEventListener('click',()=>{
+            global_string = memory;
+            displayScreen.textContent+=global_string;
         })
