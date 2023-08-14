@@ -94,23 +94,23 @@
             switch (currentOperator){
                 case '+':
                     result = operand1+operand2;
-                    result = result.toFixed(2);
+                    result = Number(result.toFixed(2));
                     break;
                 case '-':
                     result = operand1-operand2;
-                    result = result.toFixed(2);
+                    result = Number(result.toFixed(2));
                     break;
                 case '%':
                     result = operand1%operand2;
-                    result = result.toFixed(2);
+                    result = Number(result.toFixed(2));
                     break;            
                 case '÷':
                     result = operand1/operand2;
-                    result = result.toFixed(2);
+                    result = Number(result.toFixed(2));
                     break;
                 case '×':
                     result = operand1*operand2;
-                    result = result.toFixed(2);
+                    result = Number(result.toFixed(2));
                     break;
             }
         }
