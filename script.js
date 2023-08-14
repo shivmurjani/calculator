@@ -87,6 +87,7 @@
         let operand1=[];
         let operand2=[];
         let memory = [];
+        let currentValue=[];
 
         function clsrscr(){
             displayScreen.textContent = '';
@@ -249,17 +250,19 @@
             else{memory = parseFloat(global_string);}
         })
 
-        // //mminus button 
-        // mminusButton.addEventListener('click',()=>{
-        //     if(result != 0 && memory.length ==1){
-        //         result = result - memory[0]
-        //     }
-        // })
+        //mminus button 
+        mminusButton.addEventListener('click',()=>{
+            currentValue = parseFloat(global_string);
+            memory = currentValue - memory;
+        })
 
 
         //rm button, recalls memory.
 
         rmButton.addEventListener('click',()=>{
+            if(operand1.length ==0){
+                return
+            }
             global_string = memory;
             displayScreen.textContent+=global_string;
         })
